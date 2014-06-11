@@ -1,3 +1,7 @@
+v0.3.0:
+
+    * Python3 support only. For Python2.x use v0.2.1
+    * Removed support of encoding in function parameters
 
 v0.2.1:
 

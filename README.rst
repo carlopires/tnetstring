@@ -1,48 +1,15 @@
 
-tnetstring:  data serialization using typed netstrings
-======================================================
+tnetstring:  data serialization using typed netstrings for python3
+==================================================================
 
+This is the [tnetstring](http://github.com/rfk/tnetstring) ported to Python3.
 
-This is a data serialization library. It's a lot like JSON but it uses a
-new syntax called "typed netstrings" that Zed has proposed for use in the
-Mongrel2 webserver.  It's designed to be simpler and easier to implement
-than JSON, with a happy consequence of also being faster in many cases.
+In order to avoid pitfalls in encode/decoding of strings the support for
+encoding was removed from functions. Now, only bytes are allowed as string.
 
-An ordinary netstring is a blob of data prefixed with its length and postfixed
-with a sanity-checking comma.  The string "hello world" encodes like this::
+To install using pip, just issue:
 
-    11:hello world,
-
-Typed netstrings add other datatypes by replacing the comma with a type tag.
-Here's the integer 12345 encoded as a tnetstring::
-
-    5:12345#
-
-And here's the list [12345,True,0] which mixes integers and bools::
-
-    19:5:12345#4:true!1:0#]
-
-Simple enough?  This module gives you the following functions:
-
-    :dump:    dump an object as a tnetstring to a file
-    :dumps:   dump an object as a tnetstring to a string
-    :load:    load a tnetstring-encoded object from a file
-    :loads:   load a tnetstring-encoded object from a string
-    :pop:     pop a tnetstring-encoded object from the front of a string
-
-Note that since parsing a tnetstring requires reading all the data into memory
-at once, there's no efficiency gain from using the file-based versions of these
-functions.  They're only here so you can use load() to read precisely one
-item from a file or socket without consuming any extra data.
-
-The tnetstrings specification explicitly states that strings are binary blobs
-and forbids the use of unicode at the protocol level.  As a convenience to
-python programmers, this library lets you specify an application-level encoding
-to translate python's unicode strings to and from binary blobs:
-
-    >>> print repr(tnetstring.loads("2:\xce\xb1,"))
-    '\xce\xb1'
-    >>> 
-    >>> print repr(tnetstring.loads("2:\xce\xb1,", "utf8"))
-    u'\u03b1'
+    
+    pip3 install git+https://github.com/carlopires/tnetstring
+    
 
