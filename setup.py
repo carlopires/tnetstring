@@ -16,16 +16,16 @@ def get_info():
 
 info = get_info()
 
-setup(name="tnetstring",
+setup(name="tnetstring3",
       version=info["__version__"],
-      author="Ryan Kelly and Carlo Pires",
-      author_email="ryan@rfk.id.au and carlopires@gmail",
-      url="http://github.com/carlopires/tnetstring",
-      description="data serialization using typed netstrings",
+      author="Carlo Pires",
+      author_email="carlopires@gmail",
+      url="http://github.com/carlopires/tnetstring3",
+      description="Super fast data serialization for Python 3",
       long_description=info["__doc__"],
       license="MIT",
-      keywords="netstring serialize",
-      packages=["tnetstring", "tnetstring.tests"],
+      keywords="netstring serialization",
+      packages=["tnetstring"],
       ext_modules = [
           Extension(name="_tnetstring", sources=["tnetstring/_tnetstring.c"]),
       ],
@@ -35,6 +35,6 @@ setup(name="tnetstring",
         "Development Status :: 4 - Beta",
         "License :: OSI Approved :: MIT License"
         ],
-      test_suite='tnetstring.tests.suite'
+      test_suite='tests.suite'
      )
 

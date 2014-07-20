@@ -1,8 +1,9 @@
-*.pyc
-*.pyo
-*~
-*.swp
-build/
-MANIFEST
+__pycache__
 .project
 .pydevproject
+.settings
+*.pyc
+*.so
+*egg-info
+build
+dist
